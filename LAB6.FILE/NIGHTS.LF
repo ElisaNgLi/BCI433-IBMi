@@ -1,0 +1,3 @@
+000001191031     A          R SHIFTWEEK                 PFILE(SENECAPAY/SHIFTWEEK)
+000002191031     A          K EMPNUM
+000003191031     A          S WORKSHIFT                 COMP(EQ '2')

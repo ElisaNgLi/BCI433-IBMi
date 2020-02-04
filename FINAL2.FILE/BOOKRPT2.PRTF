@@ -1,0 +1,44 @@
+000001191206     A          R TITLE
+000002191206     A                                  1 41'Best Selling Genre''s'
+000003191206     A                                  1120'Page:'
+000004191206     A                                  1126PAGNBR
+000005191206     A                                  3  3' '
+000006191206     A                                  1  4'System Name:'
+000007191206     A            SYSTEMNAME    10      1 18
+000008191206     A            REPRTTITLE    15      1 71
+000009191206     A            REPORTDATE      L     1107
+000010191206     A          R COLHDG                    SPACEB(1)
+000011191206     A                                      SPACEA(1)
+000012191206     A                                     5'Genre'
+000013191206     A                                    23'Book Id'
+000014191206     A                                    45'Book Title'
+000015191206     A                                    85'Duration'
+000016191206     A                                   102'Author'
+000017191206     A                                   128'Unit'
+000018191206     A                                    85'HH:MM:SS'
+000019191206     A                                      SPACEB(1)
+000020191206     A                                   128'Price'
+000021191206     A          R DETAIL
+000022191206     A            BOOKID    R             24REFFLD(AUDIBLEBKS/BOOKID  +
+000023191206     A                                      BCI433LIB/AUDIBLEBKS)
+000024191206     A                                      SPACEB(1)
+000025191206     A            BOOK      R             34REFFLD(AUDIBLEBKS/BOOK +
+000026191206     A                                      BCI433LIB/AUDIBLEBKS)
+000027191206     A            DURATION  R             85REFFLD(AUDIBLEBKS/DURATION +
+000028191206     A                                      BCI433LIB/AUDIBLEBKS)
+000029191206     A            AUTHOR    R             95REFFLD(AUDIBLEBKS/AUTHOR +
+000030191206     A                                      BCI433LIB/AUDIBLEBKS)
+000031191206     A            PRICE     R            127REFFLD(AUDIBLEBKS/PRICE +
+000032191206     A                                      BCI433LIB/AUDIBLEBKS)
+000033191206     A                                      EDTCDE(1)
+000034191206     A          R TOTALS
+000035191206     A                                      SPACEB(2)
+000036191206     A                                      SPACEA(2)
+000037191206     A                                    19'Total Books:'
+000038191206     A            TOTALBOOKS     3  0     32EDTCDE(1)
+000039191206     A                                    38'Valued at:'
+000040191206     A            TOTALPRICE     6  2     49EDTCDE(1 $)
+000041191206     A          R GENREREC
+000042191206     A            GENRE     R              1 REFFLD(AUDIBLEBKS/GENRE +
+000043191206     A                                       BCI433LIB/AUDIBLEBKS)
+000044191206

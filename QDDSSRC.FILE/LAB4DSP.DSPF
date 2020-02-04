@@ -1,0 +1,36 @@
+000010191027     A*%%TS  SD  20190912  101522  DF433A40    REL-V7R4M0  5770-WDS
+000011191027     A*%%EC
+000012191027     A                                      DSPSIZ(24 80 *DS3)
+000013191027     A          R RECORD1
+000014191027     A*%%TS  SD  20190912  101522  DF433A40    REL-V7R4M0  5770-WDS
+000051191018     A                                      CF03(03 'Exit Program')
+000052191018     A                                      CF21(21 'Comand Line')
+000060190912     A                                  1 38'Lab 4'
+000070190912     A                                  5  3'Please select one of the following-
+000080190912     A                                       options:'
+000090190912     A                                  9 14'3.  Maximum Invalid Signon Attempt-
+000100190912     A                                      s allowed'
+000110190912     A                                 11 14'5.  Run Instructor''s Insurance Pr-
+000120190912     A                                      ogram'
+000130190912     A                                  8 14'2.  Signed on User''s Message Queu-
+000140190912     A                                      e'
+000150190912     A                                 15 17'Option:'
+000160190912     A                                 23  4'F3=Exit'
+000170190912     A                                 23 17'F21=Comand Line '
+000180191018     A                                  1  3'Elisa Ng Li'
+000200190912     A                                 10 14'4.  Initial number of active jobs -
+000210190912     A                                      for storage allocation'
+000220190912     A                                  7 14'1.  Previous sign on by signed on -
+000230190912     A                                      user'
+000231191027     A            OPTION         2   B 15 25
+000233191018     A  60                                  DSPATR(PR)
+000234191018     A  30                                  DSPATR(PC)
+000235191018     A  30                                  DSPATR(RI)
+000236191018     A                                  1 65DATE
+000237191018     A                                      EDTCDE(Y)
+000238191018     A                                  2 65TIME
+000240191028     A  40        MSGTXT1       70   O 16  7
+000241191028     A  40        MSGTXT2       70   O 17  7
+000242191027     A  30        ERROR         30   O 15 39
+000243191027
+000244191027

@@ -1,0 +1,24 @@
+000001191028     A          R RECORD1
+000002191028     A                                  2  4USER
+000003191028     A                                  2 21'S E N E C A    Payroll Program Com-
+000004191028     A                                      pleted'
+000005191028     A                                  2 66DATE EDTCDE(Y)
+000006191028     A                                  3  4'Elisa Ng Li'
+000007191028     A                                  5 11'Rates:'
+000008191028     A                                  6 19'Day Rate:'
+000009191028     A            DAYRATE        5  2   6 37EDTCDE(1)
+000010191028     A                                  7 19'Afternoon Rate:'
+000011191028     A            AFTNRATE       5  2   7 37EDTCDE(1)
+000012191028     A                                  8 19'Night Rate:'
+000013191028     A            NIGHTRATE      5  2   8 37EDTCDE(1)
+000014191028     A                                 11 11'Totals:'
+000015191028     A                                 12 19'Regular Pay:'
+000016191028     A            TOTREGPAY      9Y 2O 12 37EDTCDE(1)
+000017191028     A                                 13 19'Overtime Pay:'
+000018191028     A            TOTOVTPAY      9Y 2O 13 37EDTCDE(1)
+000019191028     A                                 14 19'Company Payout:'
+000020191028     A            TOTWKPAY       9Y 2O 14 37EDTCDE(1)
+000021191028     A                                  3 66TIME
+000022191028
+000023191028
+000024191028

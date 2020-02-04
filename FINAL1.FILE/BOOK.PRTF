@@ -1,0 +1,60 @@
+000002191203     A          R TITLE
+000003191203     A                                  1 41'Customer Purchase Report'
+000004191203     A                                  1120'Page:'
+000005191203     A                                  1126PAGNBR
+000006191203     A                                  3  3' '
+000007191203     A                                  1  4'System Name:'
+000008191203     A            SYSTEMNAME    10      1 18
+000009191203     A            REPRTTITLE    15      1 71
+000010191203     A            REPORTDATE      L     1107
+000011191203     A          R COLHDG                    SPACEB(1)
+000012191203     A                                      SPACEA(1)
+000013191203     A                                     6'Customer'
+000014191203     A                                    22'Book Purchased'
+000015191203     A                                    65'Purchase'
+000016191203     A                                    79'Genre'
+000017191203     A                                    96'Qty'
+000018191203     A                                   101'Price'
+000019191203     A                                   108'Discount'
+000020191203     A                                   118'Unit'
+000021191203     A                                   124'Extended'
+000022191203     A                                     6'Number'
+000023191203     A                                      SPACEB(1)
+000024191203     A                                    66'Date'
+000025191203     A                                   117'Price'
+000026191203     A                                   126'Price'
+000027191203     A          R DETAIL
+000028191203     A            CUSTNUM   R              2RFFLD(BKCUSTOMER/CUSTNUM +
+000029191203     A                                      BCI433LIB/BKCUSTOMER)
+000030191203     A                                      SPACEB(1)
+000031191203     A            BOOK      R             12REFFLD(AUDIBLEBKS/BOOK +
+000032191203     A                                      BCI433LIB/AUDIBLEBKS)
+000033191203     A            PDATE     R     L       63REFFLD(BKCUSTOMER/PDATE +
+000034191203     A                                      BCI433LIB/BKCUSTOMER)
+000035191203     A            GENRE     R             74REFFLD(AUDIBLEBKS/GENRE +
+000036191203     A                                      BCI433LIB/AUDIBLEBKS)
+000037191203     A            QTY       R             96REFFLD(BKCUSTOMER/QTY +
+000038191203     A                                      BCI433LIB/BKCUSTOMER)
+000039191203     A            PRICE     R            102REFFLD(AUDIBLEKS/PRICE +
+000040191203     A                                      BCI433LIB/AUDIBLEBKS)
+000041191203     A                                      EDTCDE(1)
+000042191203     A            DISCOUNT  R            111REFLLD(BKCUSTOMER/DISCOUNT +
+000043191203     A                                      BCI433LIB/BKCUSTOMER)
+000044191203     A                                      EDTCDE(2)
+000045191203     A            DISPRICE       5  2    117EDTCDE(1)
+000046191203     A            EXPRICE        5  2    125EDTCDE(1)
+000047191203     A          R BCI433
+000048191203     A                                    76'Totals Books Sold:'
+000049191203     A                                      SPACEB (2)
+000050191203     A            TOTQTY         3  0     95
+000051191203     A                                      EDTCDE(1)
+000052191203     A                                     6'Highest Customer Quantity'
+000053191203     A                                      SPACEB (2)
+000054191203     A            MOSTBOOKS      3  0     34EDTCDE (1)
+000055191203     A                                     6'Total BkCustomer Records:'
+000056191203     A                                      SPACEB (1)
+000057191203     A            BKCUSTTOT      3  0     34EDTCDE (1)
+000058191203
+000059191203
+000060191203
+000061191203

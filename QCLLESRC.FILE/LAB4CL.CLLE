@@ -1,0 +1,176 @@
+000100191027 start:      PGM        /* the start of the CL program */
+000101191027             DCLF       LAB4DSP /* selecting the display file as device */
+000102191027
+000103191027             /* VARIABLES DECLARATION */
+000104191027             DCL        &CURLIB *CHAR 10 /* string */
+000105191027             DCL        &ActJobs *CHAR 5 /* active jobs *//* string */
+000106191027             DCL        &ActJobsN *DEC (5 0) /* number of active jobs */
+000107191027             DCL        &RtnUsrPrf *CHAR 10 /*string */
+000108191027             DCL        &PrvSign *CHAR 13 /* the previous sign on by actual user ex: +
+000109191027                          df443d32 */
+000110191027             DCL        &Date *CHAR 8 /* string */
+000111191027             DCL        &Time *CHAR 8 /* string */
+000112191027             DCL        &Attempts *CHAR 6 /* string */
+000113191027             DCL        &MSGTXT1 *CHAR 70
+000114191027             DCL        &MSGTXT2 *CHAR 70
+000115191027
+000116191027             SNDRCVF    RCDFMT(RECORD1)
+000117191027             DoWhile    (&In03 = '0')
+000118191027
+000119191027
+000120191027
+000121191027
+000122191027                CallSubr   CLEAR
+000123191027
+000124191027                /* command line 21 button */
+000125191027                IF         (&In21 = '1')          CALL       QUsCmdLn
+000126191027
+000127191027
+000128191027
+000129191027                Select
+000130191027                   When       (&Option = '1' *or &option = '01')     CallSubr   OPTION1
+000131191027
+000132191027                   When       (&Option = '2' *or &option = '02')         CallSubr   OPTION2
+000133191027
+000134191027                   When       (&Option = '3' *or &option = '03')    CallSubr   OPTION3
+000135191027
+000136191027                   When       (&Option = '4' *or &option = '04')      CallSubr   OPTION4
+000137191027
+000138191027                   When       (&Option = '5' *or &option = '05')        CallSubr   OPTION5
+000139191027
+000140191028                   Otherwise  DO
+000141191028                      CHGVAR     &IN30 '1'
+000142191028                      CHGVAR     &ERROR ('Valid option must be entered')
+000143191028                      CallSubr   CLEAR
+000144191028                   EndDo
+000145191028
+000146191027
+000147191027                EndSelect
+000148191027
+000149191027                SNDRCVF    RCDFMT(RECORD1)
+000150191027             EndDo
+000151191027
+000152191027
+000153191027
+000154191027
+000155191027             /* set fields to defualt values  */
+000156191027             SUBR       CLEAR
+000157191027
+000158191028           /* CHGVAR     VAR(&OPTION) VALUE('*N')    */
+000159191028                CHGVAR     VAR(&MSGTXT1) VALUE(' ')
+000160191028                CHGVAR     VAR(&MSGTXT2) VALUE(' ')
+000161191027
+000162191027             ENDSUBR
+000163191027
+000164191027
+000165191027
+000166191027
+000167191027             /* previous sign on by signed on user */
+000168191027             SUBR       OPTION1
+000169191028                CHGVAR     &IN30 '0'
+000170191028                CHGVAR     &ERROR (' ')
+000171191028
+000172191027                RTVUSRPRF  RTNUSRPRF(&RtnUsrPrf) PRVSIGN(&PrvSign)
+000173191027
+000174191027                CHGVAR     VAR(&Date) VALUE(%SST(&PrvSign 4 2) *CAT '/' *CAT %SST(&PrvSign 6 +
+000175191027                             2) *CAT '/' *CAT %SST(&PrvSign 2 2))
+000176191027
+000177191027                CHGVAR     VAR(&Time) VALUE(%SST(&PrvSign 8 2) *CAT ':' *CAT %SST(&PrvSign 10 +
+000178191027                             2) *CAT ':' *CAT %SST(&PrvSign 12 2))
+000179191027
+000180191027                CHGVAR     VAR(&MSGTXT1) VALUE('Previous sign on for user' *BCAT &RtnUsrPrf +
+000181191027                             *BCAT 'was on' *BCAT &Date *BCAT &Time)
+000182191027
+000183191027                CHGVAR     VAR(&MSGTXT2) VALUE('CLLE Programs can report on and manage the +
+000184191027                             users on the system')
+000185191028                CHGVAR     VAR(&IN40) VALUE('1')
+000186191027             ENDSUBR
+000187191027
+000188191027
+000189191027
+000190191027
+000191191027             /* signed on user's message queue */
+000192191027             SUBR       OPTION2
+000193191028                CHGVAR     &IN30 '0'
+000194191028                CHGVAR     &ERROR (' ')
+000195191027                RTVUSRPRF  RTNUSRPRF(&RtnUsrPrf) MSGQLIB(&CURLIB)
+000196191027
+000197191027
+000198191027                CHGVAR     VAR(&MSGTXT1) VALUE('Signed on Users message queue is' *BCAT +
+000199191027                             &CURLIB *CAT '/' *CAT &RtnUsrPrf)
+000200191027
+000201191027
+000202191027                CHGVAR     VAR(&MSGTXT2) VALUE('CLLE Programs can report on and manage the +
+000203191027                             users on the system')
+000204191028                CHGVAR     VAR(&IN40) VALUE('1')
+000205191027             ENDSUBR
+000206191027
+000207191027
+000208191027
+000209191027             /* maximum invalid signon attempts allowed */
+000210191027             SUBR       OPTION3
+000211191028                CHGVAR     &IN30 '0'
+000212191028                CHGVAR     &ERROR (' ')
+000213191027
+000214191027                RTVSYSVAL  SYSVAL(QMAXSIGN) RTNVAR(&Attempts)
+000215191027
+000216191027                CHGVAR     VAR(&MSGTXT1) VALUE('Maximum invalid signons allowed:' *BCAT +
+000217191027                             &Attempts *BCAT '(tries)')
+000218191027
+000219191027
+000220191027                CHGVAR     VAR(&MSGTXT2) VALUE('CLLE Programs can report on the system and +
+000221191027                             manage system wide settings')
+000222191028                CHGVAR     VAR(&IN40) VALUE('1')
+000223191027             ENDSUBR
+000224191027
+000225191027
+000226191027
+000227191027
+000228191027             /* initial number of active jobs for storage allocation */
+000229191027             SUBR       OPTION4
+000230191028                CHGVAR     &IN30 '0'
+000231191028                CHGVAR     &ERROR (' ')
+000232191027
+000233191027                /* returns a decimal and stores it into actjobsn variable */
+000234191027
+000235191027                RTVSYSVAL  SYSVAL(QACTJOB) RTNVAR(&ActJobsN)
+000236191027
+000237191027                /* converts decimal to character with %char function */
+000238191027
+000239191027                CHGVAR     VAR(&ActJobs) VALUE(%CHAR(&ActJobsN))
+000240191027
+000241191027                CHGVAR     VAR(&MSGTXT1) VALUE('Initial number of active jobs for which +
+000242191027                             storage is allocated is:' *BCAT &ActJobs)
+000243191027
+000244191027                CHGVAR     VAR(&MSGTXT2) VALUE('CLLE Programs can report on the system and +
+000245191027                             manage system wide settings')
+000246191028                CHGVAR     VAR(&IN40) VALUE('1')
+000247191027
+000248191027             ENDSUBR
+000249191027
+000250191027
+000251191027
+000252191027             /* run instructor's/or MINE insurance program */
+000253191027             SUBR       OPTION5
+000254191028                CHGVAR     &IN30 '0'
+000255191028                CHGVAR     &ERROR (' ')
+000256191027
+000257191027                RTVUSRPRF  RTNUSRPRF(&RtnUsrPrf)
+000258191027
+000259191027                DSPLIBL
+000260191027                CALL       BCI433LIB/INSURERPGB
+000261191027                CHGCURLIB  &RtnUsrPrf
+000262191027                DSPLIBL
+000263191027                CHGVAR     VAR(&MSGTXT1) VALUE('The Instructor Version of the Insurance RPGLE +
+000264191027                             program was ran')
+000265191027                CHGVAR     VAR(&MSGTXT2) VALUE('CLLE Programs can manage how an RPGLE Business +
+000266191027                             Application is ran')
+000267191028                CHGVAR     VAR(&IN40) VALUE('1')
+000268191027             ENDSUBR
+000269191027
+000270191027
+000271191027
+000272191027
+000273191027
+000274191027            /* the end of the CL program */
+000275191027 end:        ENDPGM

@@ -1,0 +1,42 @@
+000001190924     A          R GETDATA
+000002190924     A                                  1  3USER
+000003190924     A                                  1 71DATE
+000004190924     A                                      EDTCDE(Y)
+000005190924     A                                  2 25'I N S U R A N C E   Q U O T E'
+000006190924     A                                  4  5'Birth Date:'
+000007190924     A            BIRTHDATE       L  B  4 17
+000008190924     A  60                                  DSPATR(PR)
+000009190924     A                                  5  5'Gender:'
+000010190924     A            GENDER         1   B  5 17VALUES('M' 'F')
+000011190924     A  60                                  DSPATR(PR)
+000012190924     A  97                                  DSPATR(PC)
+000013190924     A                                  5 20'M/F'
+000014190924     A  97                              5 29'Gender Must Not Be Blank'
+000015190924     A                                  6  5'Smoker?:'
+000016190924     A            SMOKER         1   B  6 17VALUES('Y' 'N')
+000017190924     A  60                                  DSPATR(PR)
+000018190924     A  98                                  DSPATR(PC)
+000019190924     A                                  6 20'Y/N'
+000020190924     A  98                              6 29'Smoker Must Not Be Blank'
+000021190924     A                                  7  5'Coverage:'
+000022190924     A            COVERAGE       1  0B  7 17RANGE(1 9)
+000023190924     A  60                                  DSPATR(PR)
+000024191003     A
+000026190924     A                                  7 20'For a multiple of 25000'
+000030190924     A          R INSQUOTE                  OVERLAY
+000031190924     A                                      CF03(03 'Exit Program')
+000032190924     A                                 12  6'Age'
+000033190924     A                                 12 32'Payout'
+000034190924     A                                 11 17'Monthly'
+000035190924     A            AGE            3  0O 14  6EDTCDE(1)
+000036190924     A            MPREMIUM       5  2O 14 17EDTCDE(1)
+000037190924     A            COVERAMT       6  0O 14 31EDTCDE(1)
+000038190924     A                                 12 17'Premium'
+000039190924     A                                 12 47'Comment'
+000040190924     A            COMMENT       25   O 14 47  TEXT('age out of coverage range')
+000041190924     A  99                                  DSPATR(RI)
+000042190924     A                                 21  7'F3 - Exit'
+000043190927     A                                 16 48'Elisa Ng Li '
+000046191003
+000047190924
+000100

@@ -1,0 +1,35 @@
+000100191127       DCL-F DAYSDSP WORKSTN;
+000101191127         EXFMT RECORD1;
+000102191127         DOW NOT(*IN03);
+000103191127           EXSR GETDAY;
+000104191127           WRITE RECORD1;
+000105191127           WRITE RECORD2;
+000106191127           IF *IN03 = '0';
+000107191127             DAYNUM = 0;
+000108191127             EXFMT RECORD1;
+000109191127           ENDIF;
+000110191127         ENDDO;
+000111191127         EXFMT RECORD3;
+000112191127         *INLR = *ON;
+000113191127         RETURN;
+000114191127
+000115191127         BEGSR GETDAY;
+000116191127           SELECT;
+000117191127             WHEN DAYNUM = 1;
+000118191127               DAYNAME = 'Monday';
+000119191127               WHEN DAYNUM = 2;
+000120191127                 DAYNAME = 'Tuesday';
+000121191127                 WHEN DAYNUM = 3;
+000122191127                   DAYNAME = 'Wednesday';
+000123191127                   WHEN DAYNUM = 4;
+000124191127                     DAYNAME = 'Thursday';
+000125191127                     WHEN DAYNUM = 5;
+000126191127                       DAYNAME = 'Friday';
+000127191127                       WHEN DAYNUM = 6;
+000128191127                         DAYNAME = 'Saturday';
+000129191127                         WHEN DAYNUM = 7'
+000130191127                           DAYNAME = 'Sunday';
+000131191127                           OTHER;
+000132191127                             DAYNAME = 'Invalid';
+000133191127           ENDSL;
+000134191127         ENDSR;

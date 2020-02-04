@@ -1,0 +1,58 @@
+000001191027     A          R TITLE
+000002191027     A                                  1  3DATE
+000003191027     A                                      EDTCDE(Y)
+000004191027     A                                  1 13TIME
+000005191027     A                                  1 50'Weekly Payroll Report'
+000006191027     A                                  1101PAGNBR
+000008191027     A                                  1 95'Page:'
+000009191027     A                                  2  3'Name: Elisa Ng Li'
+000010191027     A          R COLHDG                    SPACEB(1)
+000011191027     A                                      SPACEA(1)
+000024191027     A                                     6'Employee'
+000026191027     A                                    19'Work'
+000027191027     A                                    29'Pay'
+000028191027     A                                    37'Hourly'
+000029191027     A                                    47'Hours'
+000030191027     A                                    56'Regular'
+000031191027     A                                    71'Overtime'
+000032191027     A                                    89'Total'
+000110191027     A                                     6'Number'
+000111191027     A                                      SPACEB(1)
+000112191027     A                                    19'Shift'
+000113191027     A                                    29'Grade'
+000114191027     A                                    37'Rate'
+000115191027     A                                    47'Worked'
+000116191027     A                                    58'Pay'
+000117191027     A                                    72'Pay'
+000118191027     A                                    90'Pay'
+000119191027     A          R EMPDETAIL                 SPACEB(1)
+000134191027     A            EMPNUM    R    9S 0      6REFFLD(SHIFTWEEK/EMPNUM SENECAPAY/S-
+000135191027     A                                      HIFTWEEK)
+000136191027     A                                      EDTWRD('0   -   -   -')
+000138191027     A            WORKSHIFT R    1A       19REFFLD(SHIFTWEEK/WORKSHIFT +
+000139191027     A                                      SENECAPAY/SHIFTWEEK)
+000140191027     A            PAYGRADE  R             29REFFLD(SHIFTWEEK/PAYGRADE +
+000141191027     A                                      SENECAPAY/SHIFTWEEK)
+000142191027     A            HOURLYRATE     5  2     37EDTCDE(1)
+000143191027     A            HRSWORKED R             47REFFLD(SHIFTWEEK/HRSWORKED +
+000144191027     A                                      SENECAPAY/SHIFTWEEK)
+000145191027     A                                      EDTCDE(1)
+000146191027     A            REGULARPAY     7  2     56EDTCDE(1)
+000147191027     A            OVERPAY        7  2     71EDTCDE(2)
+000148191027     A            WEEKLYPAY      7  2     89EDTCDE(1)
+000149191027     A          R TOTALS                    SPACEB(2)
+000150191027     A                                    41'Totals:'
+000151191027     A            TOTREGPAY      9  2     51
+000152191027     A                                      EDTCDE(1 $)
+000153191027     A            TOTOVTPAY      9  2     66EDTCDE(1 $)
+000154191027     A            TOTWKPAY       9  2     82EDTCDE(1 $)
+000155191027
+000156191027     A*%%RS+<record-sequences>
+000157191027     A*%%RS+ <sequence name="RECORD1">
+000158191027     A*%%RS+  <device type="printer" width="132" height="66" />
+000159191027     A*%%RS+  <record-write record-format="TITLE" />
+000160191027     A*%%RS+  <record-write record-format="COLHDG" />
+000161191027     A*%%RS+  <record-write record-format="EMPDETAIL" />
+000162191027     A*%%RS+  <record-write record-format="TOTALS" />
+000163191027     A*%%RS+ </sequence>
+000164191027     A*%%RS </record-sequences>
